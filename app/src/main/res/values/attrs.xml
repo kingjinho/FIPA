@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="EditTextWithImage">
+        <attr name="image" format="reference|integer"/>
+        <attr name="text" format="string"/>
+        <attr name="imagePosition" format="enum">
+            <enum name="left" value="0"/>
+            <enum name="right" value="1"/>
+        </attr>
+        <attr name="placeholder" format="string"/>
+        <attr name="confidential" format="boolean"/>
+    </declare-styleable>
+</resources>
