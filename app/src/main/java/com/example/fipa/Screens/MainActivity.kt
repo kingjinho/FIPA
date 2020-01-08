@@ -1,7 +1,8 @@
-package com.example.fipa
+package com.example.fipa.Screens
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.example.fipa.R
 
 class MainActivity : AppCompatActivity() {
 

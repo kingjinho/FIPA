@@ -1,4 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">파파</string>
+    <string name="sign_up">파파 회원가입</string>
+    <string name="company_name">회사명</string>
 </resources>

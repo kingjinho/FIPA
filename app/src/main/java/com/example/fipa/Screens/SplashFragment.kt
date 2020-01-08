@@ -1,4 +1,4 @@
-package com.example.fipa
+package com.example.fipa.Screens
 
 import android.content.Context
 import android.os.Bundle
@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import com.example.fipa.R
 
 /**
  * Created by KING JINHO on 2020-01-06

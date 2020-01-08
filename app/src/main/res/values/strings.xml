@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">FIPA</string>
+    <string name="sign_up">SIGN UP</string>
+    <string name="company_name">Company Name</string>
 </resources>
