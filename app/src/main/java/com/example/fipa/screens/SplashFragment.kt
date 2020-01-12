@@ -1,4 +1,4 @@
-package com.example.fipa.Screens
+package com.example.fipa.screens
 
 import android.content.Context
 import android.os.Bundle

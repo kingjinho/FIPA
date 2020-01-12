@@ -6,6 +6,8 @@
     <dimen name="font_32sp">32sp</dimen>
     <dimen name="font_16sp">16sp</dimen>
     <dimen name="font_13sp">13sp</dimen>
+    <dimen name="font_10sp">10sp</dimen>
+    <dimen name="font_8sp">8sp</dimen>
     <dimen name="margin_36dp">36dp</dimen>
     <dimen name="margin_32dp">32dp</dimen>
     <dimen name="margin_28dp">28dp</dimen>
@@ -15,4 +17,5 @@
     <dimen name="margin_12dp">12dp</dimen>
     <dimen name="margin_8dp">8dp</dimen>
     <dimen name="margin_4dp">4dp</dimen>
+    <dimen name="border_1dp">1dp</dimen>
 </resources>

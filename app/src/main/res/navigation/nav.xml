@@ -7,7 +7,19 @@
 
     <activity
         android:id="@+id/mainActivity"
-        android:name="com.example.fipa.Screens.MainActivity"
+        android:name="com.example.fipa.screens.MainActivity"
         android:label="fragment_splash"
         tools:layout="@layout/fragment_splash" />
+    <fragment
+        android:id="@+id/loginFragment"
+        android:name="com.example.fipa.screens.LoginFragment"
+        android:label="LoginFragment" />
+    <fragment
+        android:id="@+id/splashFragment"
+        android:name="com.example.fipa.screens.SplashFragment"
+        android:label="SplashFragment" >
+        <action
+            android:id="@+id/action_splashFragment_to_loginFragment"
+            app:destination="@id/loginFragment" />
+    </fragment>
 </navigation>

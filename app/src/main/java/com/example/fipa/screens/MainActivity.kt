@@ -1,4 +1,4 @@
-package com.example.fipa.Screens
+package com.example.fipa.screens
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -16,4 +16,5 @@ class MainActivity : AppCompatActivity() {
          * 3. 안되어있을시 로그인 화면
          */
     }
+
 }
