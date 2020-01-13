@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="loginModel"
+            type="com.example.fipa.models.Login" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/primaryDarkColor">
+        <TextView
+            android:id="@+id/tvTitle"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintDimensionRatio="2.25:1"
+            android:gravity="center|bottom"
+            android:textSize="@dimen/font_48sp"
+            android:background="@color/primaryColor"
+            android:textColor="@color/primaryTextColor"
+            android:paddingBottom="@dimen/margin_24dp"
+            android:text="@string/sign_up"/>
+
+        <com.example.fipa.views.EditTextWithImage
+            android:id="@+id/etCompany"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:image="@drawable/ic_person"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvTitle"
+            app:layout_constraintBottom_toTopOf="@+id/etEmail"
+            app:placeholder="@string/company_name"
+            app:textSize="@dimen/font_8sp"
+            app:confidential="false"
+            app:imagePosition="left"/>
+
+        <com.example.fipa.views.EditTextWithImage
+            android:id="@+id/etEmail"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:image="@drawable/ic_email"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/etCompany"
+            app:layout_constraintBottom_toTopOf="@+id/etPassword"
+            app:placeholder="@string/company_name"
+            app:textSize="@dimen/font_8sp"
+            app:confidential="false"
+            app:imagePosition="left"/>
+
+        <com.example.fipa.views.EditTextWithImage
+            android:id="@+id/etPassword"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:image="@drawable/ic_lock"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/etEmail"
+            app:layout_constraintBottom_toTopOf="@+id/etBusinessLicense"
+            app:placeholder="@string/company_name"
+            app:textSize="@dimen/font_8sp"
+            app:confidential="false"
+            app:imagePosition="left"/>
+
+        <com.example.fipa.views.EditTextWithImage
+            android:id="@+id/etBusinessLicense"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:image="@drawable/ic_email"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/etPassword"
+            app:placeholder="@string/company_name"
+            app:textSize="@dimen/font_8sp"
+            app:confidential="false"
+            app:imagePosition="left"/>
+
+        <View
+            android:id="@+id/divider"
+            android:layout_width="@dimen/margin_24dp"
+            android:layout_height="@dimen/margin_4dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/etBusinessLicense"
+            android:layout_marginTop="@dimen/margin_24dp"
+            />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnLogin"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/divider"
+            app:layout_constraintBottom_toTopOf="@+id/btnNext"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

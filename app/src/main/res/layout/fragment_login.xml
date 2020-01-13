@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
+
         <variable
             name="loginModel"
             type="com.example.fipa.models.Login" />
@@ -13,35 +14,110 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@color/primaryDarkColor">
+
         <TextView
-            android:id="@+id/tv_title"
+            android:id="@+id/tvTitle"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintDimensionRatio="2.25:1"
-            android:gravity="center|bottom"
-            android:textSize="@dimen/font_48sp"
             android:background="@color/primaryColor"
+            android:gravity="center|bottom"
+            android:paddingBottom="@dimen/margin_24dp"
+            android:text="@string/app_name"
             android:textColor="@color/primaryTextColor"
-            android:paddingBottom="@dimen/margin_16dp"
-            android:text="@string/sign_up"/>
+            android:textSize="@dimen/font_48sp"
+            app:layout_constraintDimensionRatio="2.25:1"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toTopOf="@+id/etEmail"/>
 
         <com.example.fipa.views.EditTextWithImage
-            android:id="@+id/et_company"
-            android:layout_width="match_parent"
+            android:id="@+id/etEmail"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginHorizontal="@dimen/margin_16dp"
-            app:image="@drawable/ic_email"
-            android:background="@drawable/border_bottom_white"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tv_title"
-            app:placeholder="@string/company_name"
-            app:textSize="@dimen/font_8sp"
+            android:layout_marginStart="@dimen/margin_16dp"
+            android:layout_marginEnd="@dimen/margin_16dp"
+            android:layout_marginTop="@dimen/margin_16dp"
             app:confidential="false"
-            app:imagePosition="left"/>
+            app:image="@drawable/ic_email"
+            app:imagePosition="left"
+            app:layout_constraintBottom_toTopOf="@+id/etPassword"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvTitle"
+            app:placeholder="@string/email"
+            app:textSize="@dimen/font_8sp" />
+
+        <com.example.fipa.views.EditTextWithImage
+            android:id="@+id/etPassword"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/margin_16dp"
+            android:layout_marginEnd="@dimen/margin_16dp"
+            android:layout_marginTop="@dimen/margin_16dp"
+            app:confidential="false"
+            app:image="@drawable/ic_lock"
+            app:imagePosition="left"
+            app:layout_constraintBottom_toTopOf="@+id/etCompany"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/etEmail"
+            app:placeholder="@string/password"
+            app:textSize="@dimen/font_8sp" />
+
+        <com.example.fipa.views.EditTextWithImage
+            android:id="@+id/etCompany"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/margin_16dp"
+            android:layout_marginEnd="@dimen/margin_16dp"
+            android:layout_marginTop="@dimen/margin_16dp"
+            app:confidential="false"
+            app:image="@drawable/ic_person"
+            app:imagePosition="left"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/etPassword"
+            app:placeholder="@string/company_name"
+            app:textSize="@dimen/font_8sp" />
+
+
+        <Button
+            android:id="@+id/btnFindPassword"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@null"
+            android:text="@string/forget_password"
+            android:textColor="@color/primaryTextColor"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.72" />
+
+        <Button
+            android:id="@+id/btnSignup"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@null"
+            android:text="@string/sign_up"
+            android:textColor="@color/primaryTextColor"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/btnFindPassword" />
+
+        <Button
+            android:id="@+id/btnLogin"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/margin_16dp"
+            android:layout_marginEnd="@dimen/margin_16dp"
+            android:background="@drawable/btn_dark"
+            android:textColor="@color/primaryTextColor"
+            android:text="@string/login"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/btnSignup" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
