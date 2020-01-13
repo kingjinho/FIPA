@@ -6,12 +6,15 @@ import android.util.AttributeSet
 import android.util.TypedValue
 import android.view.Gravity
 import android.view.View
+import android.view.ViewGroup
 import android.widget.EditText
 import android.widget.ImageView
 import android.widget.LinearLayout
 import androidx.annotation.NonNull
 import androidx.core.content.ContextCompat
 import androidx.core.content.res.getIntOrThrow
+import androidx.core.view.marginBottom
+import androidx.core.view.setMargins
 import com.example.fipa.R
 
 /**
@@ -21,6 +24,7 @@ class EditTextWithImage(context: Context, attrs: AttributeSet) : LinearLayout(co
 
     lateinit var mImageView: ImageView
     lateinit var mEditText: EditText
+    val mMargin: Int = resources.getDimensionPixelSize(R.dimen.margin_16dp)
 
     init {
         orientation = HORIZONTAL
@@ -28,7 +32,9 @@ class EditTextWithImage(context: Context, attrs: AttributeSet) : LinearLayout(co
             LayoutParams.MATCH_PARENT,
             LayoutParams.WRAP_CONTENT
         )
-
+            //todo : .apply { setMargins(20,20,20,20) } why not working?
+        background = resources.getDrawable(R.drawable.border_bottom_white, null)
+        //setBackgroundResource(R.drawable.border_bottom_white)
         context.theme.obtainStyledAttributes(attrs, R.styleable.EditTextWithImage, 0, 0).apply {
             try {
                 setImageView(getResourceId(R.styleable.EditTextWithImage_image, 0), getInt(R.styleable.EditTextWithImage_imagePosition, 0))
@@ -57,12 +63,11 @@ class EditTextWithImage(context: Context, attrs: AttributeSet) : LinearLayout(co
 
 
     fun setImageView(imageRes: Int, leftOrRight: Int) {
-        val margin: Int = resources.getDimensionPixelSize(R.dimen.margin_16dp)
         mImageView = ImageView(context).apply {
             layoutParams = LayoutParams(
                 LayoutParams.WRAP_CONTENT,
                 LayoutParams.WRAP_CONTENT
-            ).apply { setMargins(when(leftOrRight) { 0 -> 0 else -> margin}, 0, when(leftOrRight) { 0 -> margin else -> 0}, 0) }
+            ).apply { setMargins(when(leftOrRight) { 0 -> 0 else -> mMargin}, 0, when(leftOrRight) { 0 -> mMargin else -> 0}, 0) }
             setVerticalGravity(Gravity.CENTER_VERTICAL)
             setBackgroundResource(imageRes)
         }
