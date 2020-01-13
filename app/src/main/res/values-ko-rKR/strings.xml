@@ -1,6 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">파파</string>
-    <string name="sign_up">파파 회원가입</string>
+    <string name="sign_up_fipa">파파 회원가입</string>
     <string name="company_name">회사명</string>
+    <string name="email">이메일</string>
+    <string name="password">비밀번호</string>
+    <string name="forget_password">비밀번호 찾기</string>
+    <string name="sign_up">가입하기</string>
+    <string name="login">로그인</string>
 </resources>
