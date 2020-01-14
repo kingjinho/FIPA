@@ -7,4 +7,9 @@
     <string name="forget_password">Forget Password?</string>
     <string name="sign_up">Sign Up</string>
     <string name="login">Log in</string>
+    <string name="business_license">Registration Number</string>
+    <string name="back">Back</string>
+    <string name="signup_request_made">All Set!</string>
+    <string name="signup_request_made_detail"></string>
+    <string name="close_App">Close App</string>
 </resources>
