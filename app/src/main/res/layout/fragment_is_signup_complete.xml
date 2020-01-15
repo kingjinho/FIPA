@@ -34,10 +34,10 @@
             android:id="@+id/tvDetail"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="@dimen/font_18sp"
             android:lineSpacingExtra="@dimen/margin_12dp"
             android:textAlignment="center"
             android:textColor="@color/primaryTextColor"
+            android:textSize="@dimen/font_18sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -47,29 +47,31 @@
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <Button
-        android:id="@+id/btnCloseApp"
+        android:id="@+id/btnNotifyManager"
         android:layout_width="0dp"
         android:layout_height="@dimen/margin_48dp"
-        android:background="@drawable/btn_dark"
-        android:textColor="@color/primaryTextColor"
-        app:layout_constraintStart_toStartOf="parent"
         android:layout_marginStart="@dimen/margin_16dp"
         android:layout_marginEnd="@dimen/margin_16dp"
+        android:background="@drawable/btn_white"
+        app:layout_constraintTop_toBottomOf="@+id/resultLayout"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        tools:text="@string/close_App"
-        app:layout_constraintBottom_toBottomOf="parent"/>
+        app:layout_constraintBottom_toTopOf="@+id/btnCloseApp"
+        android:layout_marginTop="@dimen/margin_48dp"
+        tools:text="@string/close_App" />
 
     <Button
         android:id="@+id/btnCloseApp"
         android:layout_width="0dp"
         android:layout_height="@dimen/margin_48dp"
-        android:background="@drawable/btn_dark"
-        android:textColor="@color/primaryTextColor"
-        app:layout_constraintStart_toStartOf="parent"
         android:layout_marginStart="@dimen/margin_16dp"
         android:layout_marginEnd="@dimen/margin_16dp"
+        android:background="@drawable/btn_dark"
+        android:textColor="@color/primaryTextColor"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        tools:text="@string/close_App"
-        app:layout_constraintBottom_toBottomOf="parent"/>
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnNotifyManager"
+        tools:text="@string/close_App" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
