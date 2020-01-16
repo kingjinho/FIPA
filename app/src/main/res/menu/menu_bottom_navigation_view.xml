@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:id="@+id/action_companies" android:icon="@drawable/ic_email"
+        android:title="@string/reset_password"/>
+    <item android:id="@+id/action_companie" android:icon="@drawable/ic_lock"
+        android:title="@string/reset_password"/>
+    <item android:id="@+id/action_companis"
+        android:icon="@drawable/ic_lock"
+        android:title="@string/reset_password"/>
+    <item android:id="@+id/action_companes"
+    android:icon="@drawable/ic_lock"
+    android:title="@string/reset_password"/>
+    <item android:id="@+id/action_compaies"
+        android:icon="@drawable/ic_lock"
+        android:title="@string/reset_password"/>
+</menu>
