@@ -13,4 +13,6 @@
     <string name="signup_request_made">신청 완료</string>
     <string name="signup_request_made_detail">회원가입 신청이 정상적으로 처리되었습니다.\n가입 처리에 최대 하루가 소요됩니다.\n가입이 완료되면 이메일로 알려드리겠습니다.\n감사합니다!</string>
     <string name="close_App">앱 종료</string>
+    <string name="reset_password">비밀번호 찾기</string>
+    <string name="i_remember_password">비밀번호 기억났습니다</string>
 </resources>
