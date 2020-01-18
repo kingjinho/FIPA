@@ -12,6 +12,10 @@
     <string name="signup_request_made">All Set!</string>
     <string name="signup_request_made_detail"></string>
     <string name="close_App">Close App</string>
-    <string name="reset_password">비밀번호 찾기</string>
+    <string name="reset_password">Reset Password</string>
     <string name="i_remember_password">I Remember My Password</string>
+    <string name="main_ask">Q &amp; A</string>
+    <string name="main_companies">Companies</string>
+    <string name="main_notifications">Alarm</string>
+    <string name="main_account">My Account</string>
 </resources>

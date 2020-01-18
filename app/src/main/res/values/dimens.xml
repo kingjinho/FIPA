@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <dimen name="font_80sp">80sp</dimen>
-    <dimen name="font_64sp">64sp</dimen>
+    <dimen name="all_font_80sp">80sp</dimen>
+    <dimen name="all_font_64sp">64sp</dimen>
     <dimen name="font_48sp">48sp</dimen>
     <dimen name="font_32sp">32sp</dimen>
     <dimen name="font_18sp">18sp</dimen>
@@ -11,16 +11,16 @@
     <dimen name="font_8sp">8sp</dimen>
     <dimen name="margin_48dp">48dp</dimen>
     <dimen name="margin_44dp">44dp</dimen>
-    <dimen name="margin_40dp">40dp</dimen>
-    <dimen name="margin_36dp">36dp</dimen>
-    <dimen name="margin_32dp">32dp</dimen>
-    <dimen name="margin_28dp">28dp</dimen>
-    <dimen name="margin_24dp">24dp</dimen>
-    <dimen name="margin_20dp">20dp</dimen>
-    <dimen name="margin_16dp">16dp</dimen>
-    <dimen name="margin_12dp">12dp</dimen>
-    <dimen name="margin_8dp">8dp</dimen>
-    <dimen name="margin_4dp">4dp</dimen>
-    <dimen name="border_1dp">1dp</dimen>
-    <dimen name="bottomNavigationView_height">56dp</dimen>
+    <dimen name="all_40dp">40dp</dimen>
+    <dimen name="all_36dp">36dp</dimen>
+    <dimen name="all_32dp">32dp</dimen>
+    <dimen name="all_28dp">28dp</dimen>
+    <dimen name="all_24dp">24dp</dimen>
+    <dimen name="all_20dp">20dp</dimen>
+    <dimen name="all_16dp">16dp</dimen>
+    <dimen name="all_12dp">12dp</dimen>
+    <dimen name="all_8dp">8dp</dimen>
+    <dimen name="all_4dp">4dp</dimen>
+    <dimen name="all_1dp">1dp</dimen>
+    <dimen name="main_bottomNavigationView_height">56dp</dimen>
 </resources>

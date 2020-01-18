@@ -15,4 +15,8 @@
     <string name="close_App">앱 종료</string>
     <string name="reset_password">비밀번호 찾기</string>
     <string name="i_remember_password">비밀번호 기억났습니다</string>
+    <string name="main_ask">Q &amp; A</string>
+    <string name="main_companies">기업소개</string>
+    <string name="main_account">우리회사</string>
+    <string name="main_notifications">알람</string>
 </resources>
