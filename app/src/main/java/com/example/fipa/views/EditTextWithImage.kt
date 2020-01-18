@@ -3,18 +3,12 @@ package com.example.fipa.views
 import android.content.Context
 import android.text.InputType
 import android.util.AttributeSet
-import android.util.TypedValue
 import android.view.Gravity
-import android.view.View
-import android.view.ViewGroup
 import android.widget.EditText
 import android.widget.ImageView
 import android.widget.LinearLayout
 import androidx.annotation.NonNull
 import androidx.core.content.ContextCompat
-import androidx.core.content.res.getIntOrThrow
-import androidx.core.view.marginBottom
-import androidx.core.view.setMargins
 import com.example.fipa.R
 
 /**
@@ -24,7 +18,7 @@ class EditTextWithImage(context: Context, attrs: AttributeSet) : LinearLayout(co
 
     lateinit var mImageView: ImageView
     lateinit var mEditText: EditText
-    val mMargin: Int = resources.getDimensionPixelSize(R.dimen.margin_16dp)
+    val mMargin: Int = resources.getDimensionPixelSize(R.dimen.all_16dp)
 
     init {
         orientation = HORIZONTAL
@@ -33,8 +27,8 @@ class EditTextWithImage(context: Context, attrs: AttributeSet) : LinearLayout(co
             LayoutParams.WRAP_CONTENT
         )
             //todo : .apply { setMargins(20,20,20,20) } why not working?
-        background = resources.getDrawable(R.drawable.border_bottom_white, null)
-        //setBackgroundResource(R.drawable.border_bottom_white)
+        background = resources.getDrawable(R.drawable.all_border_bottom_white, null)
+        //setBackgroundResource(R.drawable.all_border_bottom_white)
         context.theme.obtainStyledAttributes(attrs, R.styleable.EditTextWithImage, 0, 0).apply {
             try {
                 setImageView(getResourceId(R.styleable.EditTextWithImage_image, 0), getInt(R.styleable.EditTextWithImage_imagePosition, 0))

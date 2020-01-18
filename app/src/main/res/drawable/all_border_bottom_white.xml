@@ -2,10 +2,10 @@
 <layer-list xmlns:android="http://schemas.android.com/apk/res/android">
     <item android:bottom="1dp"
         android:top="-2dp"
-        android:start="-2dp"
-        android:end="-2dp">
-        <shape android:shape="rectangle">
-            <stroke android:width="@dimen/border_1dp"
+        android:right="-1dp"
+        android:left="-1dp">
+        <shape android:shape="line">
+            <stroke android:width="@dimen/all_1dp"
                 android:color="@color/primaryTextColor"/>
         </shape>
     </item>
