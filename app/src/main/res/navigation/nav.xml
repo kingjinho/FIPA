@@ -19,7 +19,11 @@
         android:name="com.example.fipa.screens.SplashFragment"
         android:label="SplashFragment" >
         <action
-            android:id="@+id/action_splashFragment_to_loginFragment"
-            app:destination="@id/loginFragment" />
+            android:id="@+id/action_splashFragment_to_mainFragment"
+            app:destination="@id/mainFragment" />
     </fragment>
+    <fragment
+        android:id="@+id/mainFragment"
+        android:name="com.example.fipa.screens.MainFragment"
+        android:label="MainFragment" />
 </navigation>
