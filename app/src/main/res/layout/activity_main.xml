@@ -4,14 +4,13 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".screens.MainActivity"
-    android:background="@color/primaryColor">
+    tools:context=".screens.MainActivity">
 
     <fragment
         android:id="@+id/fragment_host"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:name="com.example.fipa.screens.LoginFragment"
+        android:name="com.example.fipa.screens.MainFragment"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
