@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_marginBottom="@dimen/all_4dp">
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline_begin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintGuide_percent="0.02"
+        android:orientation="vertical"/>
+
+    <TextView
+        android:id="@+id/tvCompany"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="@+id/guideline_begin"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/ivMain"
+        android:maxLines="1"
+        android:autoSizeTextType="uniform"
+        android:textSize="@dimen/font_20sp"
+        tools:text="@tools:sample/lorem"/>
+    <TextView
+        android:id="@+id/tvMissionStatement"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="@+id/guideline_begin"
+        app:layout_constraintTop_toBottomOf="@+id/tvCompany"
+        app:layout_constraintEnd_toStartOf="@+id/ivMain"
+        app:layout_constraintBottom_toTopOf="@+id/ivLike"
+        android:maxLines="3"
+        android:textSize="@dimen/font_14sp"
+        android:layout_marginTop="@dimen/all_4dp"
+        android:layout_marginBottom="@dimen/all_4dp"
+        tools:text="우리는 현 교육시장의 문제점을 머신러닝 및 딥러닝을 통해 해결하는 Edutech기업입니다."/>
+
+    <ImageView
+        android:id="@+id/ivLike"
+        android:layout_width="@dimen/all_16dp"
+        android:layout_height="@dimen/all_16dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/tvCntLikes"
+        app:layout_constraintTop_toBottomOf="@+id/tvMissionStatement"
+        android:layout_marginEnd="@dimen/all_4dp"
+        tools:src="@tools:sample/avatars"/>
+
+    <TextView
+        android:id="@+id/tvCntLikes"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:layout_marginEnd="@dimen/all_4dp"
+        app:layout_constraintEnd_toStartOf="@+id/ivComment"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvMissionStatement"
+        android:textSize="@dimen/font_13sp"
+        tools:text="1000"/>
+
+    <ImageView
+        android:id="@+id/ivComment"
+        android:layout_width="@dimen/all_16dp"
+        android:layout_height="@dimen/all_16dp"
+        app:layout_constraintEnd_toStartOf="@+id/tvCntComments"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvMissionStatement"
+        android:layout_marginEnd="@dimen/all_4dp"
+        tools:src="@tools:sample/avatars"/>
+
+    <TextView
+        android:id="@+id/tvCntComments"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        app:layout_constraintEnd_toStartOf="@+id/ivMain"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvMissionStatement"
+        android:textSize="@dimen/font_13sp"
+        android:layout_marginEnd="@dimen/all_4dp"
+        tools:text="1000"/>
+
+    <ImageView
+        android:id="@+id/ivMain"
+        android:layout_width="@dimen/post_overview_ivMain_width"
+        android:layout_height="@dimen/post_overview_ivMain_height"
+        app:layout_constraintEnd_toEndOf="@+id/guideline_end"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        tools:src="@tools:sample/avatars"/>
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline_end"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintGuide_percent="0.98"
+        android:orientation="vertical"/>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
