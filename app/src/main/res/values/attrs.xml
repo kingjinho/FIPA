@@ -10,4 +10,11 @@
         </attr>
         <attr name="textSize" format="dimension"/>
     </declare-styleable>
+    <declare-styleable name="TextViewWithButton">
+        <attr name="sectionHeaderText" format="string"/>
+        <attr name="sectionHeaderTextSize" format="dimension"/>
+        <attr name="setSectionHeaderVisible" format="boolean"/>
+        <attr name="setBorder" format="boolean"/>
+        <attr name="sectionTextSize" format="dimension"/>
+    </declare-styleable>
 </resources>
