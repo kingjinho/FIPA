@@ -56,7 +56,7 @@ class EditTextWithImage(context: Context, attrs: AttributeSet) : LinearLayout(co
     }
 
 
-    fun setImageView(imageRes: Int, leftOrRight: Int) {
+    private fun setImageView(imageRes: Int, leftOrRight: Int) {
         mImageView = ImageView(context).apply {
             layoutParams = LayoutParams(
                 LayoutParams.WRAP_CONTENT,
