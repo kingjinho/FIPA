@@ -2,9 +2,11 @@ package com.example.fipa.views
 
 import android.content.Context
 import android.content.res.TypedArray
+import android.os.Build
 import android.util.AttributeSet
 import android.view.LayoutInflater
 import android.view.View
+import androidx.annotation.RequiresApi
 import androidx.constraintlayout.widget.ConstraintLayout
 import com.example.fipa.R
 import kotlinx.android.synthetic.main.textview_with_button_all.view.*
@@ -15,36 +17,54 @@ import kotlinx.android.synthetic.main.textview_with_button_all.view.*
 class TextViewWithButton(context: Context, attrs: AttributeSet) : ConstraintLayout(context, attrs) {
 
     lateinit var buttonClickListener: OnButtonClickListener
-    var typedArray: TypedArray
+    private var mTypedArray: TypedArray
 
 
     init {
         LayoutInflater.from(context).inflate(R.layout.textview_with_button_all, this)
-        typedArray =
+        mTypedArray =
             context.theme.obtainStyledAttributes(attrs, R.styleable.TextViewWithButton, 0, 0)
         setSectionHeader()
+        setSectionText(null)
+        setTextColor()
 
-        if (typedArray.getBoolean(R.styleable.TextViewWithButton_setBorder, true))
+        if (mTypedArray.getBoolean(R.styleable.TextViewWithButton_setBorder, true))
             background = resources.getDrawable(R.drawable.all_border_bottom_white, null)
 
         btnSection.setOnClickListener { buttonClickListener.onClick() }
     }
 
     private fun setSectionHeader() {
-        if (typedArray.getBoolean(R.styleable.TextViewWithButton_setSectionHeaderVisible, true)){
-            tvSectionHeader.visibility   = View.VISIBLE
+        if (mTypedArray.getBoolean(R.styleable.TextViewWithButton_setSectionHeaderVisible, true)) {
+            tvSectionHeader.visibility = View.VISIBLE
             tvSectionHeader.text =
-                typedArray.getString(R.styleable.TextViewWithButton_sectionHeaderText)
+                mTypedArray.getString(R.styleable.TextViewWithButton_sectionHeaderText)
         } else
-            tvSectionHeader.visibility   = View.INVISIBLE
+            tvSectionHeader.visibility = View.INVISIBLE
+    }
+
+    fun getSectionHeaderText(): String {
+        return tvSectionHeader.text.toString()
     }
 
     fun setOnButtonClickListener(listener: OnButtonClickListener) {
         buttonClickListener = listener
     }
 
-    fun setSectionText(section: String) {
-        tvSection.text = section
+    fun setSectionText(section: String?) {
+        tvSection.text = section ?: resources.getString(R.string.all_choose)
+    }
+
+    fun getSectionText(): String{
+        return tvSection.text.toString()
+    }
+
+
+    private fun setTextColor() {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M)
+            tvSection.setTextColor(resources.getColor(R.color.primaryTextColor, null))
+        else
+            tvSection.setTextColor(resources.getColor(R.color.primaryTextColor))
     }
 
     interface OnButtonClickListener {
