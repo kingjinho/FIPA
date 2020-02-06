@@ -1,16 +1,83 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    android:layout_height="match_parent">
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline_begin"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.02" />
 
     <TextView
-        android:layout_width="0dp"
+        android:id="@+id/tvTitlePlaceholder"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:layout_marginBottom="@dimen/all_8dp"
+        android:textSize="@dimen/font_20sp"
+        app:layout_constraintBottom_toTopOf="@+id/tvbTitle"
+        app:layout_constraintStart_toStartOf="@+id/guideline_begin"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="분야" />
 
+    <com.example.fipa.views.TextViewWithButton
+        android:id="@+id/tvbTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/all_8dp"
+        app:layout_constraintBottom_toTopOf="@+id/tvContentPlaceholder"
+        app:layout_constraintEnd_toEndOf="@+id/guideline_end"
+        app:layout_constraintStart_toStartOf="@+id/guideline_begin"
+        app:layout_constraintTop_toBottomOf="@+id/tvTitlePlaceholder"
+        app:sectionTextSize="@dimen/font_20sp"
+        app:setBorder="true"
+        app:setSectionHeaderVisible="false" />
+
+    <TextView
+        android:id="@+id/tvContentPlaceholder"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/all_8dp"
+        android:text="@string/ask_write_content"
+        android:textSize="@dimen/font_20sp"
+        app:layout_constraintBottom_toTopOf="@+id/etContent"
+        app:layout_constraintStart_toStartOf="@id/guideline_begin"
+        app:layout_constraintTop_toBottomOf="@+id/tvbTitle" />
+
+    <EditText
+        android:id="@+id/etContent"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginBottom="@dimen/all_8dp"
+        android:background="@drawable/all_borderwhite_background"
+        android:gravity="top|left"
+        android:lineSpacingExtra="@dimen/all_12dp"
+        app:layout_constraintBottom_toTopOf="@+id/btnSubmit"
+        app:layout_constraintEnd_toEndOf="@id/guideline_end"
+        app:layout_constraintStart_toStartOf="@id/guideline_begin"
+        app:layout_constraintTop_toBottomOf="@+id/tvContentPlaceholder" />
+
+    <Button
+        android:id="@+id/btnSubmit"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/margin_48dp"
+        android:text="@string/ask_write_post"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:textColor="@color/primaryTextColor"
+        android:background="@drawable/all_borderwhite_background"
+        app:layout_constraintEnd_toEndOf="@id/guideline_end"
+        app:layout_constraintStart_toStartOf="@id/guideline_begin"
+        app:layout_constraintTop_toBottomOf="@+id/etContent" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline_end"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.98" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
