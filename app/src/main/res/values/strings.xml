@@ -18,4 +18,8 @@
     <string name="main_companies">Companies</string>
     <string name="main_notifications">Alarm</string>
     <string name="main_account">My Account</string>
+    <string name="ask_area">Field</string>
+    <string name="ask_write_content">content</string>
+    <string name="ask_write_post">Post</string>
+    <string name="all_choose">Choose</string>
 </resources>
