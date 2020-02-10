@@ -9,6 +9,7 @@
             <enum name="right" value="1"/>
         </attr>
         <attr name="textSize" format="dimension"/>
+        <attr name="text" format="string"/>
     </declare-styleable>
     <declare-styleable name="TextViewWithButton">
         <attr name="sectionHeaderText" format="string"/>
