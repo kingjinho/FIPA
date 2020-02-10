@@ -67,6 +67,7 @@
         android:text="@string/ask_write_post"
         app:layout_constraintBottom_toBottomOf="parent"
         android:textColor="@color/primaryTextColor"
+        android:layout_marginBottom="@dimen/all_8dp"
         android:background="@drawable/all_borderwhite_background"
         app:layout_constraintEnd_toEndOf="@id/guideline_end"
         app:layout_constraintStart_toStartOf="@id/guideline_begin"

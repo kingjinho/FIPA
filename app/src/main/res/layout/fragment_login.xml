@@ -4,10 +4,9 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
-
         <variable
-            name="loginModel"
-            type="com.example.fipa.models.Login" />
+            name="loginViewModel"
+            type="com.example.fipa.viewmodels.LoginViewModel"/>
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -41,6 +40,7 @@
             app:confidential="false"
             app:image="@drawable/all_icon_email_24dp"
             app:imagePosition="left"
+            app:text="@{loginViewModel.email}"
             app:layout_constraintBottom_toTopOf="@+id/etPassword"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -55,9 +55,10 @@
             android:layout_marginStart="@dimen/all_16dp"
             android:layout_marginEnd="@dimen/all_16dp"
             android:layout_marginTop="@dimen/all_16dp"
-            app:confidential="false"
+            app:confidential="true"
             app:image="@drawable/all_icon_lock_24dp"
             app:imagePosition="left"
+            app:text="@{loginViewModel.password}"
             app:layout_constraintBottom_toTopOf="@+id/etCompany"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -66,19 +67,20 @@
             app:textSize="@dimen/font_8sp" />
 
         <com.example.fipa.views.EditTextWithImage
-            android:id="@+id/etCompany"
+            android:id="@+id/etBusinessLicense"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/all_16dp"
             android:layout_marginEnd="@dimen/all_16dp"
             android:layout_marginTop="@dimen/all_16dp"
-            app:confidential="false"
-            app:image="@drawable/all_icon_person_24dp"
+            app:confidential="true"
+            app:text="@{loginViewModel.businessLicense}"
+            app:image="@drawable/all_icon_lock_24dp"
             app:imagePosition="left"
-            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/etPassword"
-            app:placeholder="@string/company_name"
+            app:placeholder="@string/business_license"
             app:textSize="@dimen/font_8sp" />
 
 
@@ -89,6 +91,7 @@
             android:background="@null"
             android:text="@string/forget_password"
             android:textColor="@color/primaryTextColor"
+            android:onClick="@{() -> loginViewModel.onFindPasswordClick()}"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -101,6 +104,7 @@
             android:layout_height="wrap_content"
             android:background="@null"
             android:text="@string/sign_up"
+            android:onClick="@{() -> loginViewModel.onSignupClick()}"
             android:textColor="@color/primaryTextColor"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -115,6 +119,7 @@
             android:background="@drawable/all_btndark_background"
             android:textColor="@color/primaryTextColor"
             android:text="@string/login"
+            android:onClick="@{() -> loginViewModel.onLoginClick()}"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/btnSignup" />
