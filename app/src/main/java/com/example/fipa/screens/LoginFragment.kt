@@ -7,11 +7,14 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentManager
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.ViewModelProviders
+import androidx.navigation.fragment.findNavController
 import com.example.fipa.R
 import com.example.fipa.databinding.FragmentLoginBinding
+import com.example.fipa.extensions.inTransaction
 import com.example.fipa.viewmodels.LoginViewModel
 
 /**
@@ -51,8 +54,12 @@ class LoginFragment : Fragment() {
             mViewModel.setPassword(text)
         })
 
-
-
+        mViewModel.btnLogin.observe(viewLifecycleOwner, Observer { loginSuccessful ->
+            if (loginSuccessful) {
+                activity!!.supportFragmentManager.inTransaction { replace(R.id.fragment_host, MainFragment()) }
+                mViewModel.onLoginComplete()
+            }
+        })
 
         return mLoginFragmentBindingUtil.root
     }
@@ -84,4 +91,5 @@ class LoginFragment : Fragment() {
     override fun onDetach() {
         super.onDetach()
     }
+
 }

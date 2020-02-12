@@ -4,6 +4,9 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.example.fipa.models.Login
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.Job
 
 /**
  * Created by KING JINHO on 2020-02-09
@@ -12,6 +15,9 @@ import com.example.fipa.models.Login
 class LoginViewModel : ViewModel() {
 
     private lateinit var login: Login
+
+    private val viewModelJob = Job()
+    private val coroutineScope = CoroutineScope(viewModelJob + Dispatchers.Main)
 
     private var _email = MutableLiveData<String>()
     val email: LiveData<String>
@@ -72,5 +78,9 @@ class LoginViewModel : ViewModel() {
 
     fun onLoginClick() {
         _btnLogin.value = true
+    }
+
+    fun onLoginComplete() {
+        _btnLogin.value = false
     }
 }
