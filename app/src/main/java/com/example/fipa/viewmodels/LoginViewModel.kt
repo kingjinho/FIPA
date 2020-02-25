@@ -4,9 +4,11 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.example.fipa.models.Login
+import com.example.fipa.network.FIPAAPI
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.Job
+import kotlinx.coroutines.launch
 
 /**
  * Created by KING JINHO on 2020-02-09
@@ -78,6 +80,13 @@ class LoginViewModel : ViewModel() {
 
     fun onLoginClick() {
         _btnLogin.value = true
+        coroutineScope.launch {
+            try {
+                var loginResult = FIPAAPI.retrofitService.auth()
+            } catch (e: Exception) {
+
+            }
+        }
     }
 
     fun onLoginComplete() {

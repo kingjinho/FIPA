@@ -16,6 +16,7 @@ import com.example.fipa.R
 import com.example.fipa.databinding.FragmentLoginBinding
 import com.example.fipa.extensions.inTransaction
 import com.example.fipa.viewmodels.LoginViewModel
+import kotlinx.android.synthetic.main.fragment_login.*
 
 /**
  * Created by KING JINHO on 2020-01-12
