@@ -3,8 +3,9 @@ package com.example.fipa.viewmodels
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.example.fipa.models.Login
+import com.example.fipa.models.User
 import com.example.fipa.network.FIPAAPI
+import com.example.fipa.network.FIPAApi
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.Job
@@ -16,7 +17,7 @@ import kotlinx.coroutines.launch
 
 class LoginViewModel : ViewModel() {
 
-    private lateinit var login: Login
+    private lateinit var user: User
 
     private val viewModelJob = Job()
     private val coroutineScope = CoroutineScope(viewModelJob + Dispatchers.Main)
@@ -82,7 +83,7 @@ class LoginViewModel : ViewModel() {
         _btnLogin.value = true
         coroutineScope.launch {
             try {
-                var loginResult = FIPAAPI.retrofitService.auth()
+                var loginResult = FIPAApi.retrofitService.auth()
             } catch (e: Exception) {
 
             }
