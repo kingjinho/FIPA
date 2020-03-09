@@ -10,7 +10,7 @@ android {
     compileSdkVersion 29
     defaultConfig {
         applicationId "com.example.fipa"
-        minSdkVersion 21
+        minSdkVersion 23
         targetSdkVersion 29
         versionCode 1
         versionName "1.0"
@@ -28,6 +28,10 @@ android {
     kotlinOptions{
         jvmTarget = "1.8"
     }
+    compileOptions {
+        sourceCompatibility 1.8
+        targetCompatibility 1.8
+    }
 }
 
 dependencies {
@@ -42,6 +46,7 @@ dependencies {
     implementation 'androidx.navigation:navigation-fragment-ktx:2.2.1'
     implementation 'androidx.navigation:navigation-ui-ktx:2.2.1'
     implementation 'androidx.lifecycle:lifecycle-extensions:2.2.0'
+    implementation "androidx.security:security-crypto:1.0.0-alpha02"
 
     //network
     implementation 'com.squareup.retrofit2:retrofit:2.7.1'
