@@ -4,7 +4,6 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.example.fipa.models.User
-import com.example.fipa.network.FIPAAPI
 import com.example.fipa.network.FIPAApi
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -83,7 +82,10 @@ class LoginViewModel : ViewModel() {
         _btnLogin.value = true
         coroutineScope.launch {
             try {
-                var loginResult = FIPAApi.retrofitService.auth()
+                var loginResult = FIPAApi.retrofitService.getAuthenticationStatus(user.getEmail())
+                if (loginResult.isSuccessful) {
+
+                }
             } catch (e: Exception) {
 
             }
