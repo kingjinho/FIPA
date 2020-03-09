@@ -2,13 +2,18 @@ package com.example.fipa.screens
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentManager
+import androidx.fragment.app.FragmentTransaction
 import com.example.fipa.R
+import com.example.fipa.extensions.inTransaction
 
 class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+        supportFragmentManager.inTransaction { replace(R.id.fragment_layout, SplashFragment()) }
         /**
          * todo
          * 1. 기본정보
