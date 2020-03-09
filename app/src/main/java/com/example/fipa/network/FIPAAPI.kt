@@ -2,6 +2,7 @@ package com.example.fipa.network
 
 import com.example.fipa.BuildConfig
 import com.example.fipa.models.User
+import com.example.fipa.utils.Settings
 import com.jakewharton.retrofit2.adapter.kotlin.coroutines.CoroutineCallAdapterFactory
 import com.squareup.moshi.Moshi
 import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
@@ -27,12 +28,14 @@ private val moshi = Moshi.Builder()
 
 private val client = OkHttpClient().newBuilder().apply {
     connectTimeout(30, TimeUnit.SECONDS)
+    cache(null)
+
     readTimeout(30, TimeUnit.SECONDS)
     followRedirects(true)
     followSslRedirects(true)
     addInterceptor(HttpLoggingInterceptor().setLevel(HttpLoggingInterceptor.Level.BASIC))
     addInterceptor { chain ->
-        val newRequest = chain.request().newBuilder().addHeader(AUTHORIZATION, "sample").build()
+        val newRequest = chain.request().newBuilder().addHeader(AUTHORIZATION, Settings.TOKEN).build()
         chain.proceed(newRequest)
     }
 }.build()
@@ -51,8 +54,8 @@ interface FIPAApiService {
     @POST("user/{id}")
     suspend fun signup(@Path("id") id: String, @Body user: User): Response<User>
 
-    @GET("user/authentication/{id}")
-    suspend fun getAuthenticationStatus(@Path("id") id: String): Response<Boolean>
+    @GET("user/authentication/{ID}")
+    suspend fun getAuthenticationStatus(@Path(Settings.ID) id: String): Response<Boolean>
 
     @PATCH("user/token")
     suspend fun reissueToken(@Body user: User) : Response<String>
@@ -67,7 +70,6 @@ interface FIPAApiService {
 
 object FIPAApi {
     val retrofitService: FIPAApiService by lazy {
-
         retrofit.create(FIPAApiService::class.java)
     }
 }
