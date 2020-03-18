@@ -13,6 +13,7 @@ import com.example.fipa.R
 import com.example.fipa.databinding.FragmentLoginBinding
 import com.example.fipa.extensions.inTransaction
 import com.example.fipa.viewmodels.LoginViewModel
+import kotlinx.android.synthetic.main.fragment_login.*
 
 /**
  * Created by KING JINHO on 2020-01-12
@@ -20,7 +21,6 @@ import com.example.fipa.viewmodels.LoginViewModel
 class LoginFragment : Fragment() {
 
     private lateinit var mLoginFragmentBindingUtil: FragmentLoginBinding
-
     private lateinit var mLoginViewModel: LoginViewModel
 
     override fun onAttach(context: Context) {
@@ -41,23 +41,49 @@ class LoginFragment : Fragment() {
         mLoginViewModel = ViewModelProvider(this).get(LoginViewModel::class.java)
         mLoginFragmentBindingUtil.loginViewModel = mLoginViewModel
         mLoginFragmentBindingUtil.lifecycleOwner = this
-        mLoginViewModel.email.observe(viewLifecycleOwner, Observer { text ->
-            mLoginViewModel.setEmail(text)
-        })
-        mLoginViewModel.businessLicense.observe(viewLifecycleOwner, Observer { text ->
-            mLoginViewModel.setBusinessLicense(text)
-        })
-        mLoginViewModel.password.observe(viewLifecycleOwner, Observer { text ->
-            mLoginViewModel.setPassword(text)
-        })
-
+        /*mLoginViewModel.email.observe(
+            viewLifecycleOwner,
+            Observer { text -> mLoginViewModel.setEmail(text) })*/
+//        mLoginViewModel.businessLicense.observe(
+//            viewLifecycleOwner,
+//            Observer { text -> mLoginViewModel.setBusinessLicense(text) })
+//        mLoginViewModel.password.observe(
+//            viewLifecycleOwner,
+//            Observer { text -> mLoginViewModel.setPassword(text) })
+//
         mLoginViewModel.btnLogin.observe(viewLifecycleOwner, Observer { loginSuccessful ->
             if (loginSuccessful) {
-                activity!!.supportFragmentManager.inTransaction { replace(R.id.fragment_layout, MainFragment()) }
+                activity!!.supportFragmentManager.inTransaction {
+                    replace(
+                        R.id.fragment_layout,
+                        MainFragment()
+                    )
+                }
                 mLoginViewModel.onLoginComplete()
             }
         })
-
+        mLoginViewModel.btnFindPassword.observe(viewLifecycleOwner, Observer { isClicked ->
+            if (isClicked) {
+                activity!!.supportFragmentManager.inTransaction {
+                    replace(
+                        R.id.fragment_layout,
+                        ResetPasswordFragment()
+                    )
+                }
+                mLoginViewModel.onAfterFindPassworClick()
+            }
+        })
+        mLoginViewModel.btnSignup.observe(viewLifecycleOwner, Observer { isClicked ->
+            if (isClicked) {
+                activity!!.supportFragmentManager.inTransaction {
+                    replace(
+                        R.id.fragment_layout,
+                        SignupFragment()
+                    )
+                }
+                mLoginViewModel.onAfterSignupClick()
+            }
+        })
         return mLoginFragmentBindingUtil.root
     }
 

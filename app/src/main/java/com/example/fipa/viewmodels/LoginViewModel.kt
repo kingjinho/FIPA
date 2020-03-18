@@ -1,8 +1,11 @@
 package com.example.fipa.viewmodels
 
+import androidx.databinding.BaseObservable
+import androidx.databinding.Bindable
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import com.example.fipa.BR
 import com.example.fipa.models.User
 import com.example.fipa.network.FIPAApi
 import kotlinx.coroutines.CoroutineScope
@@ -14,34 +17,35 @@ import kotlinx.coroutines.launch
  * Created by KING JINHO on 2020-02-09
  */
 
-class LoginViewModel : ViewModel() {
+class LoginViewModel : BaseObservableViewModel() {
+
 
     private lateinit var user: User
 
     private val viewModelJob = Job()
     private val coroutineScope = CoroutineScope(viewModelJob + Dispatchers.Main)
 
-    private var _email = MutableLiveData<String>()
+    var _email = MutableLiveData<String>()
     val email: LiveData<String>
         get() = _email
 
-    private var _password = MutableLiveData<String>()
+    var _password = MutableLiveData<String>()
     val password: LiveData<String>
         get() = _password
 
-    private var _businessLicense = MutableLiveData<String>()
+    var _businessLicense = MutableLiveData<String>()
     val businessLicense: LiveData<String>
         get() = _password
 
-    private var _btnFindPassword = MutableLiveData<Boolean>()
+    var _btnFindPassword = MutableLiveData<Boolean>()
     val btnFindPassword: LiveData<Boolean>
         get() = _btnFindPassword
 
-    private var _btnSignup = MutableLiveData<Boolean>()
+    var _btnSignup = MutableLiveData<Boolean>()
     val btnSignup: LiveData<Boolean>
         get() = _btnSignup
 
-    private var _btnLogin = MutableLiveData<Boolean>()
+    var _btnLogin = MutableLiveData<Boolean>()
     val btnLogin: LiveData<Boolean>
         get() = _btnLogin
 
@@ -58,12 +62,26 @@ class LoginViewModel : ViewModel() {
         _businessLicense.value = ""
     }
 
+    @Bindable
+    fun getEmail(): String {
+        return email.value!!
+    }
+
     fun setEmail(email: String) {
         _email.value = email
+
+    }
+
+    fun getPassword(): String {
+        return password.value!!
     }
 
     fun setPassword(password: String) {
         _password.value = password
+    }
+
+    fun gettBusinessLicense() : String {
+        return  businessLicense.value!!
     }
 
     fun setBusinessLicense(businessLicense: String) {
@@ -74,20 +92,28 @@ class LoginViewModel : ViewModel() {
         _btnFindPassword.value = true
     }
 
+    fun onAfterFindPassworClick() {
+        _btnFindPassword.value = false
+    }
+
     fun onSignupClick() {
         _btnSignup.value = true
     }
 
+    fun onAfterSignupClick() {
+        _btnSignup.value = false
+    }
+
     fun onLoginClick() {
-        _btnLogin.value = true
+        user = User()
+        user.setEmail(email.toString())
         coroutineScope.launch {
             try {
                 var loginResult = FIPAApi.retrofitService.getAuthenticationStatus(user.getEmail())
-                if (loginResult.isSuccessful) {
-
-                }
+                if (loginResult.isSuccessful)
+                    _btnLogin.value = true
             } catch (e: Exception) {
-
+                _btnLogin.value = false
             }
         }
     }
