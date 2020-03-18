@@ -2,6 +2,7 @@ package com.example.fipa.views
 
 import android.content.Context
 import android.text.InputType
+
 import android.util.AttributeSet
 import android.view.Gravity
 import android.widget.EditText
@@ -16,9 +17,9 @@ import com.example.fipa.R
  */
 class EditTextWithImage(context: Context, attrs: AttributeSet) : LinearLayout(context, attrs) {
 
-    lateinit var mImageView: ImageView
-    lateinit var mEditText: EditText
-    val mMargin: Int = resources.getDimensionPixelSize(R.dimen.all_16dp)
+    private lateinit var mImageView: ImageView
+    private lateinit var mEditText: EditText
+    private val mMargin: Int = resources.getDimensionPixelSize(R.dimen.all_16dp)
 
     init {
         orientation = HORIZONTAL
@@ -26,12 +27,15 @@ class EditTextWithImage(context: Context, attrs: AttributeSet) : LinearLayout(co
             LayoutParams.MATCH_PARENT,
             LayoutParams.WRAP_CONTENT
         )
-            //todo : .apply { setMargins(20,20,20,20) } why not working?
+        //todo : .apply { setMargins(20,20,20,20) } why not working?
         background = resources.getDrawable(R.drawable.all_border_bottom_white, null)
         //setBackgroundResource(R.drawable.all_border_bottom_white)
         context.theme.obtainStyledAttributes(attrs, R.styleable.EditTextWithImage, 0, 0).apply {
             try {
-                setImageView(getResourceId(R.styleable.EditTextWithImage_image, 0), getInt(R.styleable.EditTextWithImage_imagePosition, 0))
+                setImageView(
+                    getResourceId(R.styleable.EditTextWithImage_image, 0),
+                    getInt(R.styleable.EditTextWithImage_imagePosition, 0)
+                )
                 setEditText(
                     getString(R.styleable.EditTextWithImage_placeholder),
                     getBoolean(R.styleable.EditTextWithImage_confidential, false),
@@ -61,16 +65,25 @@ class EditTextWithImage(context: Context, attrs: AttributeSet) : LinearLayout(co
             layoutParams = LayoutParams(
                 LayoutParams.WRAP_CONTENT,
                 LayoutParams.WRAP_CONTENT
-            ).apply { setMargins(when(leftOrRight) { 0 -> 0 else -> mMargin}, 0, when(leftOrRight) { 0 -> mMargin else -> 0}, 0) }
+            ).apply {
+                setMargins(
+                    when (leftOrRight) {
+                        0 -> 0
+                        else -> mMargin
+                    }, 0, when (leftOrRight) {
+                        0 -> mMargin
+                        else -> 0
+                    }, 0
+                )
+            }
             setVerticalGravity(Gravity.CENTER_VERTICAL)
             setBackgroundResource(imageRes)
         }
-        invalidate()
-        requestLayout()
-
+        //invalidate()
+        //requestLayout()
     }
 
-    fun setEditText(placeholder: String?, isConfidential: Boolean, textSize: Float) {
+    private fun setEditText(placeholder: String?, isConfidential: Boolean, textSize: Float) {
         mEditText = EditText(context).apply {
             layoutParams = LayoutParams(
                 LayoutParams.MATCH_PARENT,
@@ -82,13 +95,14 @@ class EditTextWithImage(context: Context, attrs: AttributeSet) : LinearLayout(co
             setBackgroundResource(android.R.color.transparent)
             setTextSize(textSize)
             hint = placeholder
-            inputType = when (isConfidential) {
-                true -> InputType.TYPE_TEXT_VARIATION_PASSWORD
-                else -> InputType.TYPE_CLASS_TEXT
-            }
         }
-        invalidate()
-        requestLayout()
+        mEditText.inputType
+        mEditText.inputType =  when (isConfidential) {
+            true -> InputType.TYPE_CLASS_TEXT or InputType.TYPE_TEXT_VARIATION_PASSWORD
+            else -> InputType.TYPE_CLASS_TEXT
+        }
+       // invalidate()
+      //  requestLayout()
     }
 
     fun getText(): String {
