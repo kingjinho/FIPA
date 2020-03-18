@@ -1,9 +1,9 @@
 <resources>
     <string name="app_name">FIPA</string>
     <string name="sign_up_fipa">파파 회원가입</string>
-    <string name="company_name">COMPANY NAME</string>
-    <string name="email">EMAIL</string>
-    <string name="password">PASSWORD</string>
+    <string name="company_name">Company Name</string>
+    <string name="email">Email</string>
+    <string name="password">Password</string>
     <string name="forget_password">Forget Password?</string>
     <string name="sign_up">Sign Up</string>
     <string name="login">Log in</string>
