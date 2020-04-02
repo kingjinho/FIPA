@@ -2,6 +2,7 @@ package com.example.fipa.viewmodels
 
 import androidx.databinding.BaseObservable
 import androidx.databinding.Bindable
+import androidx.databinding.ObservableField
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -25,17 +26,9 @@ class LoginViewModel : BaseObservableViewModel() {
     private val viewModelJob = Job()
     private val coroutineScope = CoroutineScope(viewModelJob + Dispatchers.Main)
 
-    var _email = MutableLiveData<String>()
-    val email: LiveData<String>
-        get() = _email
-
-    var _password = MutableLiveData<String>()
-    val password: LiveData<String>
-        get() = _password
-
-    var _businessLicense = MutableLiveData<String>()
-    val businessLicense: LiveData<String>
-        get() = _password
+    var email = ObservableField<String>()
+    var password = ObservableField<String>()
+    var license = ObservableField<String>()
 
     var _btnFindPassword = MutableLiveData<Boolean>()
     val btnFindPassword: LiveData<Boolean>
@@ -57,36 +50,35 @@ class LoginViewModel : BaseObservableViewModel() {
     }
 
     private fun clear() {
-        _email.value = ""
-        _password.value = ""
-        _businessLicense.value = ""
+        email.set("")
+        password.set("")
+        license.set("")
     }
 
-    @Bindable
-    fun getEmail(): String {
-        return email.value!!
+    fun getEmail() : String {
+        return email.get().toString()
     }
 
-    fun setEmail(email: String) {
-        _email.value = email
-
+    fun setEmail(text: String) {
+        email.set(text)
     }
 
-    fun getPassword(): String {
-        return password.value!!
+    fun getPassword() : String {
+        return password.get().toString()
     }
 
-    fun setPassword(password: String) {
-        _password.value = password
+    fun setPassword(text: String) {
+        password.set(text)
     }
 
-    fun gettBusinessLicense() : String {
-        return  businessLicense.value!!
+    fun getLicense() : String {
+        return license.get().toString()
     }
 
-    fun setBusinessLicense(businessLicense: String) {
-        _businessLicense.value = businessLicense
+    fun setLicense(text: String) {
+        license.set(text)
     }
+
 
     fun onFindPasswordClick() {
         _btnFindPassword.value = true
