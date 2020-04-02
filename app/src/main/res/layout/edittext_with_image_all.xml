@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+    <data>
+        <variable
+            name="view"
+            type="com.example.fipa.views.EditTextWithImage" />
+    </data>
+
+    <LinearLayout android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/iv_left"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/all_0dp"
+            android:layout_marginBottom="@dimen/all_0dp"
+            android:layout_marginEnd="@dimen/all_16dp"
+            android:layout_marginStart="@dimen/all_0dp"/>
+
+        <EditText
+            android:id="@+id/et_content"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+        <ImageView
+            android:id="@+id/iv_right"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/all_0dp"
+            android:layout_marginBottom="@dimen/all_0dp"
+            android:layout_marginStart="@dimen/all_0dp"
+            android:layout_marginEnd="@dimen/all_16dp"/>
+    </LinearLayout>
+</layout>
