@@ -22,7 +22,7 @@ class TextViewWithButton(context: Context, attrs: AttributeSet) : ConstraintLayo
 
 
     init {
-        LayoutInflater.from(context).inflate(R.layout.textview_with_button_all, this)
+        LayoutInflater.from(context).inflate(R.layout.textview_with_button_all, this, false)
         mTypedArray =
             context.theme.obtainStyledAttributes(attrs, R.styleable.TextViewWithButton, 0, 0)
         setSectionHeader()
