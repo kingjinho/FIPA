@@ -109,7 +109,12 @@ class EditTextWithImage(context: Context, attrs: AttributeSet) : LinearLayout(co
         return mEditText.text.toString()
     }
 
-    fun setText(@NonNull text: String): Unit {
+    fun setText( text: String?): Unit {
         mEditText.setText(text)
     }
+
+    fun getEditText(): EditText {
+        return mEditText
+    }
+
 }
