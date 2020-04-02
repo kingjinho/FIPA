@@ -29,5 +29,6 @@
     <dimen name="all_4dp">4dp</dimen>
     <dimen name="all_2dp">2dp</dimen>
     <dimen name="all_1dp">1dp</dimen>
+    <dimen name="all_0dp">0dp</dimen>
     <dimen name="main_bottomNavigationView_height">56dp</dimen>
 </resources>
