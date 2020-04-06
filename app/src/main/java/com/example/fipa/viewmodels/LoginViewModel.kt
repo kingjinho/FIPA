@@ -1,30 +1,21 @@
 package com.example.fipa.viewmodels
 
-import androidx.databinding.BaseObservable
-import androidx.databinding.Bindable
 import androidx.databinding.ObservableField
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.ViewModel
-import com.example.fipa.BR
 import com.example.fipa.models.User
-import com.example.fipa.network.FIPAApi
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.Job
-import kotlinx.coroutines.launch
+import com.example.fipa.repositories.LoginRepository
 
 /**
  * Created by KING JINHO on 2020-02-09
  */
 
-class LoginViewModel : BaseObservableViewModel() {
+class LoginViewModel(private val loginRepo: LoginRepository) : BaseObservableViewModel() {
 
 
     private lateinit var user: User
 
-    private val viewModelJob = Job()
-    private val coroutineScope = CoroutineScope(viewModelJob + Dispatchers.Main)
+
 
     var email = ObservableField<String>()
     var password = ObservableField<String>()
@@ -97,20 +88,17 @@ class LoginViewModel : BaseObservableViewModel() {
     }
 
     fun onLoginClick() {
-        user = User()
-        user.setEmail(email.toString())
-        coroutineScope.launch {
-            try {
-                var loginResult = FIPAApi.retrofitService.getAuthenticationStatus(user.getEmail())
-                if (loginResult.isSuccessful)
-                    _btnLogin.value = true
-            } catch (e: Exception) {
-                _btnLogin.value = false
-            }
-        }
+        user = User(getEmail(), getPassword(), getLicense())
+        val result = loginRepo.loginRequest(user)
+
     }
 
     fun onLoginComplete() {
         _btnLogin.value = false
+    }
+
+    override fun onCleared() {
+        super.onCleared()
+        loginRepo.cancelViewModel()
     }
 }

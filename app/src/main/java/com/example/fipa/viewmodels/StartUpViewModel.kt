@@ -3,7 +3,7 @@ package com.example.fipa.viewmodels
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.example.fipa.network.FIPAApi
+import com.example.fipa.network.FIPA_NETWORK
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.Job
@@ -27,7 +27,7 @@ class StartUpViewModel : ViewModel() {
 
     fun getLoginStatus(email: String) {
         coroutineScope.launch {
-            var authenticationResult = FIPAApi.retrofitService.getAuthenticationStatus(email)
+            var authenticationResult = FIPA_NETWORK.REMOTE_SERVICE.getAuthenticationStatus(email)
             if (authenticationResult.isSuccessful)
                 _isAuthenticated.value = true
         }
