@@ -16,6 +16,9 @@ data class User(
 
     constructor() : this("", "", "", false, false, "")
 
+    constructor(email: String, password: String, license: String) : this(email, password, license, false, false, "")
+
+
 
     public fun setEmail(email: String) {
         this.email = email
