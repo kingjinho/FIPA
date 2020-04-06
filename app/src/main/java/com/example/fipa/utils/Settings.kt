@@ -8,7 +8,6 @@ class Settings{
     companion object{
         var EMAIL : String = ""
         var TOKEN : String = ""
-        const val AUTHENTICATION = "AUTHENTICATION"
-        const val ID = "ID"
+
     }
 }
